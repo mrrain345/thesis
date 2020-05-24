@@ -1,0 +1,126 @@
+%==========================================================================================
+%
+%								Uniwersytet Zielonogórski
+%
+%						SZABLON PRACY DYPLOMOWEJ W~PAKIECIE LaTeX
+%							wykonany podczas zajęć seminarjnych
+%				pod przewodnictwem prof. dr hab. inż Dariusza Ucińskiego
+%
+%							 Damian Kowalów, Mariusz Buciakowski
+%
+% 				       Wydział Informatyki, Elektrotechniki i Automatyki
+%						Instytut Sterowania i~Systemów Informatycznych
+%
+%							 Zielona Góra, kwiecień 2013
+%			   (ostatnia modyfikacja: 01.02.2017 przez Mariusz Buciakowski)
+%==========================================================================================
+%\documentclass[a4paper,12pt]{book}
+\documentclass[a4paper,12pt,openany]{book}
+\input{packages}
+\input{settings}
+
+
+%==========================================================================================
+% Dane na temat pracy do wypełnienia
+%==========================================================================================
+\author{Kamil Majewski}
+\kierunek{Informatyka}
+\grupa{32INF-SSI-NP}
+\title{Proceduralne generowanie terenu za pomocą algorytmu Marching Cubes}
+\tytulAngielski{Procedural terrain generation using the Marching Cubes}
+\uczelnia{Uniwersytet Zielonogórski}
+\wydzial{Wydział Informatyki, Elektrotechniki i Automatyki}
+\praca{Praca dyplomowa}
+\promotor{dr inż. Marek Sawerwain}
+\konsultant{}
+\miasto{Zielona Góra}
+\miesiac{miesiąc }	% miesiąc złożenia pracy
+\rok{rok}
+\dzien{dd} 			% dzień podpisania oświadczenia (cyfrowo) np. 10
+\mm{mm} 				% miesiąc podpisania oświadczenia (cyfrowo) np. 01 (styczeń)
+
+%==========================================================================================
+% Uwaga! polecenie \myemptypage dodaje pustą stronę do treści. Praca oddana do dziekanatu powinna być zbudowana zgodnie z~szablonem znajdującym się na stronie WEIT (z jedną stroną pustą następującą po karcie pracy), jednak jeżeli student planuje wydruk dla siebie, zalecane jest zastąpienie poleceń \newpage poleceniem \myemptypage. Skutkuje to utworzeniem bardziej przejrzystego układu zgodnego z~zaleceniami pisania książek, czyli rozpoczynanie nowych treści na prawej stronie.
+%==========================================================================================
+
+
+%==========================================================================================
+% Dokument główny
+%==========================================================================================
+\begin{document}
+\pagenumbering{roman}
+
+%=========================================================================================
+% Strona tytułowa
+%=========================================================================================
+\thispagestyle{empty}
+\stronatytulowa
+
+\thispagestyle{empty}
+\pustastrona
+\newpage
+
+%========================================================================================
+% Streszczenie
+%========================================================================================
+\normalsize
+\input{abstract}
+\newpage
+%\myemptypage
+
+%========================================================================================
+% Spis treści, spis tabel i~rysunków
+%========================================================================================
+%spis treści
+	\tableofcontents
+	\newpage
+	%\myemptypage
+%spis rysunków
+ 	\listoffigures
+	\newpage
+	%\myemptypage
+%spis tabel
+	\listoftables
+	\newpage
+	%\myemptypage
+
+%========================================================================================
+% Licznik Stron
+%========================================================================================
+\newcounter{licznikStron}
+\setcounter{licznikStron}{\value{page}}
+\setcounter{licznikStron}{1}
+\pagenumbering{arabic}
+\setcounter{page}{\value{licznikStron}}
+
+%========================================================================================
+% Treść
+%========================================================================================
+\input{chapter1/index.tex}
+\input{chapter2/index.tex}
+\input{chapter3/index.tex}
+\input{chapter4/index.tex}
+\input{chapter5/index.tex}
+
+
+%========================================================================================
+% Dodatki
+%========================================================================================
+% \begin{appendix}
+% 	\appendix
+% 	\input{extras/dodatek_a.tex}
+% 	\input{extras/dodatek_b.tex}
+% \end{appendix}
+
+%========================================================================================
+% Literatura
+%========================================================================================
+
+\begin{flushleft}
+	\bibliography{bibliography}
+\end{flushleft}
+
+\end{document}
+%========================================================================================
+% Koniec dokumentu
+%========================================================================================

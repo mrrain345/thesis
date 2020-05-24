@@ -1,0 +1,170 @@
+\chapter{Proceduralna generacja terenu}
+
+\input{chapter2/1. Opis zagadnienia i przykłady zastosowania}
+\input{chapter2/2. Algorytm Marching Cubes}
+\input{chapter2/3. Funkcje szumu}
+
+% %=================================================================================================
+% \section{Skróty}
+% Z istniejących rodzajów skrótów najpopularniejsze są te ogólnie przyjęte, nie budzące wątpliwości i~nie wymagające objaśnień skrótu słów potocznych. Przykładowo, cd.~(ciąg dalszy), m.in.~(między innymi), itp.~(i tym podobne), itd.~(i tak dalej), wg~(według), zob.~(zobacz), por.~(porównaj), br.~(bieżącego roku), r.~(rok), ok.~(około). Tego rodzaju skrótów można albo używać albo nie, jednak należy przyjąć jedną konwencję w całej pracy.
+
+% Istnieją skróty, których nie powinno się stosować: a~mian.~(a~mianowicie), b.~(bardzo), cz.~(czyli), w/w~(wyżej wymieniony), n/~(nad, np. w~nazwie miejscowości).
+
+% Drugim rodzajem skrótów są te które są typowe dla części składowych pracy. Są~nimi np. rozdz.~(rozdział), rys.~(rysunek), tabl.~(tablica), tab.~(tabela), p.~(punkt, paragraf). Skróty te występują tylko w połączeniu z numerami porządkowymi, np. rozdz.~7, p.~2.3.1, s.~17--21, albo innymi oznaczeniami np. tab.~B.
+
+% Trzeci rodzaj to skróty stosowane przy sporządzaniu bibliografii i przypisów. Dotyczą one wyrazów typowych dla opisu bibliograficznego np. wyd., t., vol.), jednak pakiet \LaTeX\  oferuje automatyczne tworzenie bibliografii dzięki czemu autor jest zwolniony z tego obowiązku.
+
+% Rodzaj czwarty odnosi się do skrótów wielkości fizycznych, których można używać jedynie wtedy, kiedy poprzedza je wartość liczbowa. Jeżeli natomiast w tekście stosuje się określenia ogólne, wówczas zamiast napisać \textit{kilkanaście cm} należy pisać \textit{kilkanaście centymetrów}. Skrótów jednostek fizycznych ani takich jak np. zł, tys., mln, nie używa się gdy poprzedzają je liczebniki podane słownie, a więc, zamiast \textit{dwa tys.} powinno być \textit{dwa tysiące}.
+
+% Na koniec należy dodać, że zdań nie powinno się rozpoczynać od skrótów. Wyrazy typowe powinny być przesunięte na dalsze miejsce w zdaniu, odpowiednio zmieniając szyk wyrazów (co, niestety, nie zawsze jest łatwe), albo rozwinięte \pauza nawet wówczas, gdy są one w obrębie danej pracy konsekwentnie stosowane. Na przykład, zamiast \textit{Tab. 6 zawiera niezbędne dane statystyczne} lepiej napisać \textit{Tabela 6 zawiera niezbędne dane statystyczne}.
+% %=================================================================================================
+% \section{Zapis matematyczny}
+% Praca dyplomowa, pomijając specyficzne tematy, nie jest dziełem matematycznym, dlatego formalny aparat matematyczny powinien być ograniczony do minimum \pauza do tego tylko, co czytelnikowi może być rzeczywiście użyteczne. Nie ma potrzeby opisywania i wyprowadzania wszystkich banalnych przekształceń, oraz należy nadać sformalizowanemu opisowi najbardziej klarowną postać. W pracy dyplomowej zapis matematyczny pełni funkcję niejako usługową. Jest to tylko narzędzie pomocnicze do przekazania określonych wiadomości fachowych.
+
+% Jednolicie i konsekwentnie w obrębie całej pracy musi być podany zapis numerów: nie może być raz np. wyrób \textit{n}, a raz wyrób nr \textit{n}, a jeszcze w innym miejscu wyrób \textit{n}-ty.
+
+% %Znakiem służącym do oddzielenia części całkowitej od części ułamkowej liczby dziesiętnej jest \textbf{przecinek}. Tylko w zapisach programów komputerowych i specjalistycznej literaturze, zwłaszcza z dziedziny informatyki można stosować kropkę zamiast przecinka.
+
+% Istnieje też kilka innych ważnych elementów, o których często się zapomina:
+% \begin{itemize}
+% \item znakiem równości przybliżonej jest $\approx$ (nie $\sim$, bo jest to znak proporcjonalności i nie $\simeq$, bo jest to znak równości asymptotycznej),
+% \item znakiem logarytmu dziesiętnego $x$ jest $\lg x$ (nie $\log x$),
+% \item znakiem logarytmu $x$ przy podstawie $a$ jest $\log_ax$ (nie $\lg_ax$),
+% \item znakiem logarytmu naturalnego $x$ jest $\ln x$.
+% \end{itemize} 
+% Konsekwentnie zapisuje się również funkcję wykładniczą: albo $\mathrm{e}^x$, albo $\exp (x)$. Znak $\exp$ stosuje się wówczas, gdy w pracy występują złożone wykładniki, np. $\exp \left(-\frac{(a+b)^3}{3a^2}\right )$.
+
+% W indeksach używa się oznaczeń krótkich i zwięzłych, najwyżej trzyliterowych, a~same oznaczenia pisze się czcionką prostą, czyli antykwą, np. zamiast pisać ${Y_\mathrm{wyjściowe}}$, lepiej $Y_{\mathrm{wy}}$.
+
+% Wszelkie użyte we wzorach oznaczenia literowe, np. wielkości fizycznych, wymagają skrupulatnego objaśnienia w pierwszym miejscu ich występowania. Wyjątkiem jest kiedy jest ich wiele \pauza wtedy umieszcza się je w odrębnych wykazach takich oznaczeń.
+
+% Oto kilka przykładów opisu wzorów:\\
+% Dowolny wyraz ciągu
+% \begin{equation}
+% a_k=aq^k,
+% \end{equation}
+% w którym: $k$ \pauza kolejny numer wyrazu; $a$ \pauza pierwszy wyraz ciągu.\\
+% Siłę dociskania przy ciśnieniu oblicza się z następującego wzoru:
+% \begin{equation}
+% P_{\mathrm{doc}}= Fp_d,
+% \end{equation}
+% gdzie:\\
+% $F$ \pauza powierzchnia materiału pod dociskaczem,\\
+% $p_d$ \pauza nacisk jednostkowy.\\
+% Modelem opartym na zmiennych stanu układów ciągłych, nazywamy model opisany następującym równaniem różniczkowym:
+% \begin{equation}\label{eq:rownanieStanu}
+% \frac{\mathrm{d}x(t)}{\mathrm{d}t}=\boldsymbol{A}x(t)+\boldsymbol{B}u(t),
+% \end{equation}
+% przy czym $x(t)$ jest wektorem zmiennych stanu układu, $u(t)$ jest sygnałem wejściowym systemu dynamicznego, natomiast $\boldsymbol{A}$ (macierz systemu) oraz $\boldsymbol{B}$ (macierz wejścia) to macierze stałych współczynników, które odzwierciedlają strukturę modelowanego liniowego układu dynamicznego i parametry elementów tworzących ten układ. 
+
+% Każdy wzór matematyczny \pauza bez względu na to, czy znajduje się bezpośrednio w tekście, czy też jest z tekstu wyłączony i umieszczony w odrębnym wierszu \pauza jest integralną częścią zdania. Opracowując tekst matematyczny, trzeba więc całe zdanie wraz ze zawartym w nim wzorem (lub grupą wzorów) dokładnie przeczytać na głos, tak aby sprawdzić, czy zdanie to jest pełne i czy wraz ze wzorem tworzy logicznie zbudowaną całość. Poniżej przedstawiono przykładowe błędnie skonstruowane zdania:\\
+% Całkowity ciężar pręta $G$ wynosi
+% \begin{equation}\label{eq:zle1}
+% G = Fl\gamma.
+% \end{equation}
+% Za minimalną odległość przyjmujemy długość fali równą 
+% \begin{equation}\label{eq:zle2}
+% r_{\min} \approx \frac{h}{m_e v_e}.
+% \end{equation}
+% Zdanie pierwsze po przeczytaniu brzmi: ,,Całkowity ciężar pręta $G$ wynosi $G$ jest równe $Fl\gamma$'', a więc jest nielogiczne. Kolejne zdanie również posiada błędy ponieważ znak $\approx$ oznacza przybliżenie, a w zdaniu jest mowa o równości. Należy więc nadać całości poprawną postać \pauza rezygnując albo ze słownego określenia zależności, albo z matematycznego znaku relacji we wzorze.
+
+% Po zredagowaniu przytoczone równania \eqref{eq:zle1} oraz \eqref{eq:zle2} moga przybrać następujące postaci:\\
+% Całkowity ciężar pręta
+% \begin{equation*}
+% G = Fl\gamma.
+% \end{equation*}\\
+% lub\\
+% Całkowity ciężar pręta $G$ wynosi
+% \begin{equation*}
+% Fl\gamma.
+% \end{equation*}\\
+% Ponieważ wzór jest krótki, można włączyć go do tekstu i napisać: ,,Całkowity ciężar pręta $G =  Fl\gamma$.''\\
+% Za minimalną odległość przyjmujemy długość fali
+% \begin{equation*}
+% r_{\min} \approx \frac{h}{m_e v_e}.
+% \end{equation*}
+% lub\\
+% Za minimalną odległość $r_{\min}$ przyjmujemy długość fali w przybliżeniu równą $h \slash m_e v_e$.\\
+
+
+% Także w zdaniach zawierających wzory konieczne jest przestrzeganie logicznego następstwa zdarzeń.
+% Zamiast\\
+% \hspace*{2cm}Zakładając, że\dots, otrzymano\dots\\
+% powinno się pisać\\
+% \hspace*{2cm}Po założeniu, że\dots, otrzymano\dots\\
+% lub\\
+% \hspace*{2cm}Jeżeli założymy, że\dots, to otrzymamy\dots\\
+% Zamiast, np.\\
+% \hspace*{2cm}Podstawiając $x=9$, mamy\dots\\
+% lepiej jest napisać\\
+% \hspace*{2cm}Jeżeli $x=9$, to\dots\\
+% Zamiast\\
+% \hspace*{2cm}Jeżeli $a=x$, wówczas\dots\\
+% pisze się\\
+% \hspace*{2cm}Jeżeli $a=x$, to\dots\\
+% Zamiast\\
+% \hspace*{2cm}Dla $x\in A$ zachodzi $x\in B$ ($\in$ oznacza ,,należy do", a nie ,,należące do").\\
+% lepiej pisać\\
+% \hspace*{2cm}Dla $x\in A$, to $x\in B$.\\
+% Zamiast\\
+% \hspace*{2cm}Ponieważ $p\neq 0, p\in U$.\\
+% lepiej\\
+% \hspace*{2cm}Ponieważ  $p\neq 0$, zachodzi $p\in U$.
+
+
+
+% Inna grupa błędów to:\\
+% Zamiast np.\\
+% \hspace*{2cm}Niech $r_1,\dots,r_n$ jest rozwiązaniem równania $f(x)=0$.\\
+% piszemy zawsze\\
+% \hspace*{2cm}Niech $r_1,\dots,r_n$ będą rozwiązaniami równania $f(x)=0$.\\
+% Zamiast\\
+% \hspace*{2cm}Każde $x$ nie należy do zbioru $A$.\\
+% oraz\\
+% \hspace*{2cm}Wszystkie $x$ nie należą do zbioru $A$.\\
+% piszemy zawsze\\
+% \hspace*{2cm}Żadne $x$ nie należy do zbioru $A$.\\
+% i podobnie, zamiast\\
+% \hspace*{2cm}Każdy z warunków wstępnych jest nie spełniony.\\
+% piszemy zawsze\\
+% \hspace*{2cm}Żaden z warunków nie jest spełniony.\\
+% Zamiast funkcja \textit{od czego} piszemy funkcja \textit{czego}, a więc nie funkcja od $x$, lecz funkcja~$x$.\\
+% Zamiast całka \textit{od czego}, piszemy całka \textit{czego}.
+
+
+% Elementy zapisu matematycznego podlegają regułom wyróżniania \pauza czyli odmiennym krojem pisma. Wyróżnieniem najczęściej stosowanym jest \textit{pismo pochyłe} (kursywa), którym składa się:
+% \begin{itemize}
+% \item oznaczenia funkcji, np. $f(x)$;
+% \item oznaczenia literowe i skróty literowe występujące w indeksach dolnych i górnych (z wyjątkiem skrótów dwu- lub trzy literowych, np. $a_n, i_{\mathrm{kr}}, X_{\mathrm{we}}, X_{\mathrm{wy}}$ utworzonych z liter jakiegoś jednego słowa).
+% \end{itemize}
+
+
+% Pismem prostym (antykwą) składa się:
+% \begin{itemize}
+% \item liczby arabskie i liczby rzymskie, także w indeksach, np. $x_1$;
+% \item oznaczenia i skróty jednostek miar;
+% \item skróty złożone z dwu- lub większej liczby liter, np. $\mathrm{Re}$ (liczba Reynoldsa);
+% \item stałe symbole funkcyjne takie jak:
+% $\mathrm{ar}$, $\mathrm{arc}$, $\arccos$, $\mathrm{arcosh}$, $\arcsin$, $\mathrm{arcctg}$, $\mathrm{arcctgh}$, $\mathrm{const}$, $\cos$, $\cosh$, $\mathrm{cov}$, $\mathrm{ctg}$, $\mathrm{ctgh}$, $\det$, $\mathrm{diag}$, $\mathrm{div}$, $\exp$, $\mathrm{grad}$, $\mathrm{Im}$, $\inf$, $\lg$, $\lim$, $\ln$, $\log$, $\max$, $\min$, $\mathrm{mod}$, $\mathrm{Rm}$, $\mathrm{rot}$, $\sec$, $\mathrm{sng}$, $\sinh$, $\sup$, $\mathrm{tg}$, $\mathrm{tgh}$;
+% \item jednostki urojone liczb zespolonych i oraz j;
+% \item znak różniczki $\mathrm{d}$;
+% \item liczby specjalne $\mathrm{\pi}$, i e (podstawa logarytmu naturalnego);
+% \item prawdopodobieństwo $\mathrm{P}(A)$, wartość oczekiwaną $\mathrm{E}(x)$, wariancję zmiennej losowej $\mathrm{D}^2(X)$, znak przyrostu $\mathrm{\Delta}$.
+% \end{itemize}
+
+% \textbf{Pismem prostym pogrubionym} (tzw. antykwą pogrubioną) wyróżnia się macierze, np. $\mathrm{\mathbf{A,I,E}}$, pismem \textit{\textbf{pochyłym pogubionym}} (tzw. kursywą pogrubioną) \pauza wektory. Poniżej kilka przykładów:
+% \begin{equation*}
+% J = \frac{\partial u}{\partial x},
+% \end{equation*}
+% \begin{equation*}
+% F(t) = F_0 + \mathrm{\Delta F}\sin \omega t,
+% \end{equation*}
+% \begin{equation*}
+% \mathrm{Im}_1 = \frac{1}{\sigma \sqrt{2 \mathrm{\pi}}} \approx \frac{0,4}{\sigma}.
+% \end{equation*}
+% %=================================================================================================
+
+% %=====================================================================================
+% \section{Jednostki miar}Legalnymi jednostkami miar są jednostki \textbf{Międzynarodowego Układu Jednostek}, jednostki pochodne oraz jednostki spoza tego układu, które ze względu na rozpowszechnienie w Polsce lub specjalny charakter zastosowań mogą być nadal używane. Należy pamiętać o obowiązujących oznaczeniach jednostek (np. skrótem godziny jest h, a nie g, sekundy s, a nie sec lub sek), jak i sposobu zapisu jednostek fizycznych, np. $\mathrm{N}\cdot \mathrm{m}$, a nie Nm (niutonometr), $\mathrm{V}\cdot\mathrm{A}\cdot\mathrm{h}$, a nie VAh, $\mathrm{m}\slash \mathrm{s}^2$, lub $\mathrm{m}\cdot \mathrm{s}^{-2}$, a nie $\mathrm{ms}^{-2}$. W zapisie jednostek złożonych kropki na środku wiersza rozdzielające oznaczenia jednostek prostych. 
+
+% Na temat legalnych jednostek miar i wprowadzania jednostek układu SI istnieje wiele publikacji oraz tablic przeliczeniowych, do których można odwołać się w celu rozwiania wątpliwości.
